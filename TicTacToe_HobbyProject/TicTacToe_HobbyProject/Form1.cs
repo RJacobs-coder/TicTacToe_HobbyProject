@@ -9,6 +9,7 @@ namespace TicTacToe
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private bool playerTurn = true;                  // Switches player turns to color code player one and two. True means Red player goes first.
@@ -17,31 +18,62 @@ namespace TicTacToe
         private int max = 3;                          // Sets max iterations in for loops.
         private int maxRound = 0;                    // Controls max amount of rounds to initiate Draw game ending condition.
 
+
+        private void gameReset()
+        {
+            button1.BackColor = Color.White;        // All colors of Buttons are reset back to White as default.
+            button2.BackColor = Color.White;
+            button3.BackColor = Color.White;
+            button4.BackColor = Color.White;
+            button5.BackColor = Color.White;
+            button6.BackColor = Color.White;
+            button7.BackColor = Color.White;
+            button8.BackColor = Color.White;
+            button9.BackColor = Color.White;
+
+            for (int i = 0; i < max; i++)
+            {
+                for (int j = 0; j < max; j++)
+                {
+                    gameArray[i, j] = '\0';          // All the buttons will have the 'r' and 'y' removed for the next game.
+                }
+            }
+
+            playerTurn = true;                      // Red Player will always go first on the new game.
+            maxRound = 0;
+            Form1.ActiveForm.BackColor = Color.Red; // Color of Form will change to red to represent this.
+        }
         // BUTTON SECTION
         private void button1_Click(object sender, EventArgs e) // Button 1 contains all the explanations which are repeated for any other button.
                                                                // With the exception of the hard coded 2D array index.
         {
-            if (playerTurn == true)
+            if (gameArray[0, 0] == '\0')
             {
+                if (playerTurn == true)
+                {
 
-                button1.BackColor = Color.Red;  // Changes color of Button to Red.
-                gameArray[0, 0] = 'r';         // Allocates this Button as Red.
-                playerTurn = false;           // Switches over to next player for their turn.
-                formColor();                 // Changes Form color based on who's turn it is now.
+                    button1.BackColor = Color.Red;  // Changes color of Button to Red.
+                    gameArray[0, 0] = 'r';         // Allocates this Button as Red.
+                    playerTurn = false;           // Switches over to next player for their turn.
+                    formColor();                 // Changes Form color based on who's turn it is now.
+                }
+                else
+                {
+
+                    button1.BackColor = Color.Yellow; // Changes color of Button to Yellow.
+                    gameArray[0, 0] = 'y';           // Allocates this Button as Yellow.
+                    playerTurn = true;              // Switches over to next player for their turn.
+                    formColor();                   // Changes Form color based on who's turn it is now.
+                }
+
+                verSearch();                        // Conducts a Vertical Search that repeats 3 times.
+                horSearch();                       // Conducts a Horizontal Search that repeats 3 times.
+                diaSearch();                      // Conducts a Diaginal Search that does not repeat.
             }
             else
             {
-
-                button1.BackColor = Color.Yellow; // Changes color of Button to Yellow.
-                gameArray[0, 0] = 'y';           // Allocates this Button as Yellow.
-                playerTurn = true;              // Switches over to next player for their turn.
-                formColor();                   // Changes Form color based on who's turn it is now.
+                MessageBox.Show("Please pick a white box");
             }
-
-            verSearch();                        // Conducts a Vertical Search that repeats 3 times.
-            horSearch();                       // Conducts a Horizontal Search that repeats 3 times.
-            diaSearch();                      // Conducts a Diaginal Search that does not repeat.
-
         }
         private void formColor()                // Controls the color of the Form background.
         {
@@ -178,30 +210,7 @@ namespace TicTacToe
 
             gameReset();
         }
-        private void gameReset()
-        {
-            button1.BackColor = Color.White;        // All colors of Buttons are reset back to White as default.
-            button2.BackColor = Color.White;
-            button3.BackColor = Color.White;
-            button4.BackColor = Color.White;
-            button5.BackColor = Color.White;
-            button6.BackColor = Color.White;
-            button7.BackColor = Color.White;
-            button8.BackColor = Color.White;
-            button9.BackColor = Color.White;
 
-            for (int i = 0; i < max; i++)
-            {
-                for (int j = 0; j < max; j++)
-                {
-                    gameArray[i, j] = ' ';          // All the buttons will have the 'r' and 'y' removed for the next game.
-                }
-            }
-
-            playerTurn = true;                      // Red Player will always go first on the new game.
-            maxRound = 0;
-            Form1.ActiveForm.BackColor = Color.Red; // Color of Form will change to red to represent this.
-        }
         private void button10_Click(object sender, EventArgs e) // Reset button allows user to reset game at any stage.
         {
             gameReset();
@@ -211,189 +220,252 @@ namespace TicTacToe
         // Button explanation is above. No comments below this point.
         private void button2_Click(object sender, EventArgs e)
         {
-            if (playerTurn == true)
+            if (gameArray[0, 1] == '\0')
             {
+                if (playerTurn == true)
+                {
 
-                button2.BackColor = Color.Red;
-                gameArray[0, 1] = 'r';
-                playerTurn = false;
-                formColor();
+                    button2.BackColor = Color.Red;
+                    gameArray[0, 1] = 'r';
+                    playerTurn = false;
+                    formColor();
+                }
+                else
+                {
+
+                    button2.BackColor = Color.Yellow;
+                    gameArray[0, 1] = 'y';
+                    playerTurn = true;
+                    formColor();
+                }
+                verSearch();
+                horSearch();
+                diaSearch();
+
             }
             else
             {
-
-                button2.BackColor = Color.Yellow;
-                gameArray[0, 1] = 'y';
-                playerTurn = true;
-                formColor();
+                MessageBox.Show("Please pick a white box");
             }
-            verSearch();
-            horSearch();
-            diaSearch();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (playerTurn == true)
+            if (gameArray[0, 2] == '\0')
             {
+                if (playerTurn == true)
+                {
 
-                button3.BackColor = Color.Red;
-                gameArray[0, 2] = 'r';
-                playerTurn = false;
-                formColor();
+                    button3.BackColor = Color.Red;
+                    gameArray[0, 2] = 'r';
+                    playerTurn = false;
+                    formColor();
+                }
+                else
+                {
+
+                    button3.BackColor = Color.Yellow;
+                    gameArray[0, 2] = 'y';
+                    playerTurn = true;
+                    formColor();
+                }
+                verSearch();
+                horSearch();
+                diaSearch();
+
             }
             else
             {
-
-                button3.BackColor = Color.Yellow;
-                gameArray[0, 2] = 'y';
-                playerTurn = true;
-                formColor();
+                MessageBox.Show("Please pick a white box");
             }
-            verSearch();
-            horSearch();
-            diaSearch();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (playerTurn == true)
+            if (gameArray[1, 0] == '\0')
             {
+                if (playerTurn == true)
+                {
 
-                button4.BackColor = Color.Red;
-                gameArray[1, 0] = 'r';
-                playerTurn = false;
-                formColor();
+                    button4.BackColor = Color.Red;
+                    gameArray[1, 0] = 'r';
+                    playerTurn = false;
+                    formColor();
+                }
+                else
+                {
+
+                    button4.BackColor = Color.Yellow;
+                    gameArray[1, 0] = 'y';
+                    playerTurn = true;
+                    formColor();
+                }
+                verSearch();
+                horSearch();
+                diaSearch();
+
+
             }
             else
             {
-
-                button4.BackColor = Color.Yellow;
-                gameArray[1, 0] = 'y';
-                playerTurn = true;
-                formColor();
+                MessageBox.Show("Please pick a white box");
             }
-            verSearch();
-            horSearch();
-            diaSearch();
-
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (playerTurn == true)
+            if (gameArray[1, 1] == '\0')
             {
+                if (playerTurn == true)
+                {
 
-                button5.BackColor = Color.Red;
-                gameArray[1, 1] = 'r';
-                playerTurn = false;
-                formColor();
+                    button5.BackColor = Color.Red;
+                    gameArray[1, 1] = 'r';
+                    playerTurn = false;
+                    formColor();
+                }
+                else
+                {
+
+                    button5.BackColor = Color.Yellow;
+                    gameArray[1, 1] = 'y';
+                    playerTurn = true;
+                    formColor();
+                }
+                verSearch();
+                horSearch();
+                diaSearch();
+
+
             }
             else
             {
-
-                button5.BackColor = Color.Yellow;
-                gameArray[1, 1] = 'y';
-                playerTurn = true;
-                formColor();
+                MessageBox.Show("Please pick a white box");
             }
-            verSearch();
-            horSearch();
-            diaSearch();
-
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (playerTurn == true)
+            if (gameArray[1, 2] == '\0')
             {
+                if (playerTurn == true)
+                {
 
-                button6.BackColor = Color.Red;
-                gameArray[1, 2] = 'r';
-                playerTurn = false;
-                formColor();
+                    button6.BackColor = Color.Red;
+                    gameArray[1, 2] = 'r';
+                    playerTurn = false;
+                    formColor();
+                }
+                else
+                {
+
+                    button6.BackColor = Color.Yellow;
+                    gameArray[1, 2] = 'y';
+                    playerTurn = true;
+                    formColor();
+                }
+                verSearch();
+                horSearch();
+                diaSearch();
+
             }
             else
             {
-
-                button6.BackColor = Color.Yellow;
-                gameArray[1, 2] = 'y';
-                playerTurn = true;
-                formColor();
+                MessageBox.Show("Please pick a white box");
             }
-            verSearch();
-            horSearch();
-            diaSearch();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (playerTurn == true)
+            if (gameArray[2, 0] == '\0')
             {
+                if (playerTurn == true)
+                {
 
-                button7.BackColor = Color.Red;
-                gameArray[2, 0] = 'r';
-                playerTurn = false;
-                formColor();
+                    button7.BackColor = Color.Red;
+                    gameArray[2, 0] = 'r';
+                    playerTurn = false;
+                    formColor();
+                }
+                else
+                {
+
+                    button7.BackColor = Color.Yellow;
+                    gameArray[2, 0] = 'y';
+                    playerTurn = true;
+                    formColor();
+                }
+                verSearch();
+                horSearch();
+                diaSearch();
+
             }
             else
             {
-
-                button7.BackColor = Color.Yellow;
-                gameArray[2, 0] = 'y';
-                playerTurn = true;
-                formColor();
+                MessageBox.Show("Please pick a white box");
             }
-            verSearch();
-            horSearch();
-            diaSearch();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (playerTurn == true)
+            if (gameArray[2, 1] == '\0')
             {
+                if (playerTurn == true)
+                {
 
-                button8.BackColor = Color.Red;
-                gameArray[2, 1] = 'r';
-                playerTurn = false;
-                formColor();
+                    button8.BackColor = Color.Red;
+                    gameArray[2, 1] = 'r';
+                    playerTurn = false;
+                    formColor();
+                }
+                else
+                {
+
+                    button8.BackColor = Color.Yellow;
+                    gameArray[2, 1] = 'y';
+                    playerTurn = true;
+                    formColor();
+                }
+                verSearch();
+                horSearch();
+                diaSearch();
+
             }
             else
             {
-
-                button8.BackColor = Color.Yellow;
-                gameArray[2, 1] = 'y';
-                playerTurn = true;
-                formColor();
+                MessageBox.Show("Please pick a white box");
             }
-            verSearch();
-            horSearch();
-            diaSearch();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (playerTurn == true)
+            if (gameArray[2, 2] == '\0')
             {
+                if (playerTurn == true)
+                {
 
-                button9.BackColor = Color.Red;
-                gameArray[2, 2] = 'r';
-                playerTurn = false;
-                formColor();
+                    button9.BackColor = Color.Red;
+                    gameArray[2, 2] = 'r';
+                    playerTurn = false;
+                    formColor();
+                }
+                else
+                {
+
+                    button9.BackColor = Color.Yellow;
+                    gameArray[2, 2] = 'y';
+                    playerTurn = true;
+                    formColor();
+                }
+                verSearch();
+                horSearch();
+                diaSearch();
             }
             else
             {
-
-                button9.BackColor = Color.Yellow;
-                gameArray[2, 2] = 'y';
-                playerTurn = true;
-                formColor();
+                MessageBox.Show("Please pick a white box");
             }
-            verSearch();
-            horSearch();
-            diaSearch();
-        }
 
+        }
     }
 }
