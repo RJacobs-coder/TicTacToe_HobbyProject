@@ -1,0 +1,10 @@
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\obj\Debug\TicTacToe_HobbyProject.csprojAssemblyReference.cache
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\obj\Debug\TicTacToe.Form1.resources
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\obj\Debug\TicTacToe_HobbyProject.Properties.Resources.resources
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\obj\Debug\TicTacToe_HobbyProject.csproj.GenerateResource.cache
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\obj\Debug\TicTacToe_HobbyProject.csproj.CoreCompileInputs.cache
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\bin\Debug\TicTacToe_HobbyProject.exe.config
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\bin\Debug\TicTacToe_HobbyProject.exe
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\bin\Debug\TicTacToe_HobbyProject.pdb
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\obj\Debug\TicTacToe_HobbyProject.exe
+C:\Users\Robert\Desktop\Personal Projects(coding)\TicTacToe_HobbyProject\TicTacToe_HobbyProject\obj\Debug\TicTacToe_HobbyProject.pdb
